@@ -13,8 +13,9 @@ void main(List<String> arguments) {
     print('2. add subjects');
     print('3. calculate student grade');
     print('4. student data');
-    print('5. remove student');
-    print('6. end');
+    print('5. all students data');
+    print('6. remove student');
+    print('7. end');
     print('**********************************');
     var op = stdin.readLineSync();
     switch (op) {
@@ -44,14 +45,17 @@ void main(List<String> arguments) {
       case '4':
         print('Enter the student id');
         var id = stdin.readLineSync()!;
-        stds.printStudentData(id);
+        stds.printStudentData(id: id);
         break;
       case '5':
+        stds.printStudentData();
+        break;
+      case '6':
         print('Enter the student id');
         var id = stdin.readLineSync()!;
         stds.removeStudent(id);
         break;
-      case '6':
+      case '7':
         break loop;
     }
   }

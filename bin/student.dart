@@ -57,9 +57,15 @@ class Students {
     stds.removeWhere((element) => element.id == id);
   }
 
-  void printStudentData(String id) {
-    var studend = stds.singleWhere((std) => std.id == id);
-    studend.studentData();
+  void printStudentData({String? id}) {
+    if (id == null) {
+      stds.forEach((element) {
+        element.studentData();
+      });
+    } else {
+      var studend = stds.singleWhere((std) => std.id == id);
+      studend.studentData();
+    }
   }
 
   void addSubject(String id, String name, double grade) {
